@@ -1,20 +1,15 @@
 #!/bin/bash
+# shellcheck disable=SC2155
 
 set -eo pipefail
 
 SetupEnv() {
   # Not worried about return codes from echo.
-  # shellcheck disable=SC2155
   export D_REGION=$(eval echo "${D_REGION}")
-  # shellcheck disable=SC2155
   export D_SERVICE_NAME=$(eval echo "${D_SERVICE_NAME}")
-  # shellcheck disable=SC2155
   export D_ACCOUNT_CANONICAL_SLUG=$(eval echo "${D_ACCOUNT_CANONICAL_SLUG}")
-  # shellcheck disable=SC2155
   export D_DEPLOYOMAT_CANONICAL_SLUG=$(eval echo "${D_DEPLOYOMAT_CANONICAL_SLUG}")
-  # shellcheck disable=SC2155
   export D_AMI_ID=$(eval echo "${D_AMI_ID}")
-  # shellcheck disable=SC2155
   export D_MANIFEST_PATH=$(eval echo "${D_MANIFEST_PATH}")
   D_DEPLOY_CONFIG_FILE=$(eval echo "${D_DEPLOY_CONFIG_FILE}")
 
