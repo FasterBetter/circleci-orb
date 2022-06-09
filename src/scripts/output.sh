@@ -1,4 +1,7 @@
-#!/bin/bash -e -o pipefail
+#!/bin/bash
+
+set  -eo pipefail
+
 ~/terraform/terraform -chdir="$module_path" output -json \
   | jq -r 'to_entries | map({key: .key | gsub("-"; "_") | ascii_upcase, value: .value.value, type: .value.value | type})
     | map(select(.type == "string" or .type == "number" or .type == "boolean"))

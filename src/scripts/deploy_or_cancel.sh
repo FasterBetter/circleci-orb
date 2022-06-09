@@ -1,4 +1,6 @@
-#!/bin/bash -eo pipefail
+#!/bin/bash
+
+set -eo pipefail
 
 SetupEnv() {
   export D_REGION=$(eval echo "${D_REGION}")
