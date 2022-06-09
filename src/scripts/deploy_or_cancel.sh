@@ -3,6 +3,8 @@
 set -eo pipefail
 
 SetupEnv() {
+  # Not worried about return codes from echo.
+  # shellcheck disable=SC2155
   export D_REGION=$(eval echo "${D_REGION}")
   export D_SERVICE_NAME=$(eval echo "${D_SERVICE_NAME}")
   export D_ACCOUNT_CANONICAL_SLUG=$(eval echo "${D_ACCOUNT_CANONICAL_SLUG}")
