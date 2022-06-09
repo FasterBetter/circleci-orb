@@ -2,8 +2,8 @@
 
 require 'tempfile'
 
-ORGANIZATION = 'teak'.freeze
-ORB_NAME = 'sdk-utils'.freeze
+ORGANIZATION = 'fasterbetter'.freeze
+ORB_NAME = 'omat'.freeze
 
 def with_packed_orb
   Tempfile.open('orb') do |file|
