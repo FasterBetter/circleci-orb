@@ -44,9 +44,9 @@ GetRoleAndSfnArn() {
 AssumeRole() {
   echo "Assuming role ${ROLE_ARN}"
   if [ -z "$ROLE_EXTERNAL_ID" ]; then
-    eval $(aws sts assume-role --role-arn "${ROLE_ARN}" --role-session-name "${D_SERVICE_NAME}" | jq -r '.Credentials | "export AWS_ACCESS_KEY_ID=\(.AccessKeyId)\nexport AWS_SECRET_ACCESS_KEY=\(.SecretAccessKey)\nexport AWS_SESSION_TOKEN=\(.SessionToken)\n"')
+    eval "$(aws sts assume-role --role-arn "${ROLE_ARN}" --role-session-name "${D_SERVICE_NAME}" | jq -r '.Credentials | "export AWS_ACCESS_KEY_ID=\(.AccessKeyId)\nexport AWS_SECRET_ACCESS_KEY=\(.SecretAccessKey)\nexport AWS_SESSION_TOKEN=\(.SessionToken)\n"')"
   else
-    eval $(aws sts assume-role --external-id "${ROLE_EXTERNAL_ID}" --role-arn "${ROLE_ARN}" --role-session-name "${D_SERVICE_NAME}" | jq -r '.Credentials | "export AWS_ACCESS_KEY_ID=\(.AccessKeyId)\nexport AWS_SECRET_ACCESS_KEY=\(.SecretAccessKey)\nexport AWS_SESSION_TOKEN=\(.SessionToken)\n"')
+    eval "$(aws sts assume-role --external-id "${ROLE_EXTERNAL_ID}" --role-arn "${ROLE_ARN}" --role-session-name "${D_SERVICE_NAME}" | jq -r '.Credentials | "export AWS_ACCESS_KEY_ID=\(.AccessKeyId)\nexport AWS_SECRET_ACCESS_KEY=\(.SecretAccessKey)\nexport AWS_SESSION_TOKEN=\(.SessionToken)\n"')"
   fi
 }
 
