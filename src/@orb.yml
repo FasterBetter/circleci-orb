@@ -1,8 +1,12 @@
 version: 2.1
 
-description: |
-  Helper Orb for Teak SDK CircleCI builds
-  https://github.com/GoCarrot/circleci-orb
+description: >
+  Omat Tooling Orb
+  Build AMIs, and trigger/cancel deploys using the Omat Tooling infrastructure.
+
+display:
+  # home_url: "https://www.example.com/docs"
+  source_url: "https://github.com/FasterBetter/circleci-orb"
 
 orbs:
   slack: circleci/slack@4
